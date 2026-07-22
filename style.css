@@ -1,0 +1,634 @@
+/* ==============================
+   FONTES
+================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+
+/* ==============================
+   VARIÁVEIS
+================================= */
+
+:root{
+
+    /* Cores */
+    --cor-principal:#4E6656;
+    --cor-principal-escura:#435949;
+    --cor-fundo:#FAF8F5;
+    --cor-fundo-card:#F5F2EC;
+    --cor-borda:#ece8e2;
+    --cor-texto:#2F2F2F;
+    --cor-texto-suave:#555;
+    --cor-texto-claro:#666;
+    --cor-texto-discreto:#8d8d8d;
+
+    /* Tipografia */
+    --fonte-titulo:"Cormorant Garamond", serif;
+    --fonte-texto:"Manrope", sans-serif;
+
+    /* Escala de títulos (Cormorant Garamond) */
+    --fs-h1:3.25rem;       /* 52px — título do hero */
+    --fs-h2:2.25rem;       /* 36px — título de seção */
+    --fs-h3-lg:1.75rem;    /* 28px — subtítulos maiores (tratamento, dimensão) */
+    --fs-h3:1.5rem;        /* 24px — títulos de card / passo / timeline */
+    --fs-numero:1.75rem;   /* 28px — número grande (capítulo, passo) */
+
+    /* Escala de texto (Manrope) */
+    --fs-destaque:1.25rem; /* 20px — parágrafo de destaque do hero */
+    --fs-corpo:1.0625rem;  /* 17px — corpo de texto padrão nas seções */
+    --fs-base:1rem;        /* 16px — texto de card */
+    --fs-pequeno:0.875rem; /* 14px — legendas, rodapé, tag do logo */
+
+    /* Espaçamento (escala consistente em múltiplos de 8px) */
+    --sp-xs:8px;
+    --sp-sm:16px;
+    --sp-md:24px;
+    --sp-lg:32px;
+    --sp-xl:48px;
+
+    --espaco-secao:64px;      /* respiro vertical padrão entre seções */
+    --espaco-bloco:32px;      /* espaço entre título de seção e conteúdo */
+}
+
+
+/* ==============================
+   RESET
+================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--fonte-texto);
+    font-size:var(--fs-base);
+    font-weight:400;
+    line-height:1.6;
+    background:var(--cor-fundo);
+    color:var(--cor-texto);
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+
+/* ==============================
+   TIPOGRAFIA GLOBAL
+================================= */
+
+h1, h2, h3{
+    font-family:var(--fonte-titulo);
+    font-weight:600;
+    line-height:1.15;
+    color:var(--cor-texto);
+}
+
+h1{ font-size:var(--fs-h1); }
+h2{ font-size:var(--fs-h2); }
+h3{ font-size:var(--fs-h3); }
+
+p{
+    font-size:var(--fs-base);
+    color:var(--cor-texto-suave);
+    line-height:1.8;
+}
+
+
+/* ==============================
+   CONTAINER
+================================= */
+
+.container{
+    width:min(1200px,90%);
+    margin:0 auto;
+}
+
+
+/* ==============================
+   HEADER
+================================= */
+
+header{
+    background:var(--cor-fundo);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid var(--cor-borda);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    min-height:85px;
+}
+
+.logo h2{
+    font-size:2.25rem; /* 36px */
+    font-weight:600;
+}
+
+.logo p{
+    color:var(--cor-texto-claro);
+    font-size:var(--fs-pequeno);
+}
+
+nav ul{
+    display:flex;
+    gap:var(--sp-md);
+}
+
+nav li{
+    font-size:0.9375rem; /* 15px */
+    font-weight:500;
+}
+
+nav a{
+    transition:.25s;
+}
+
+nav a:hover{
+    color:var(--cor-principal);
+}
+
+
+/* ==============================
+   BOTÕES
+================================= */
+
+.botao{
+    display:inline-block;
+    margin:var(--sp-sm) 0;
+    background:var(--cor-principal);
+    color:white;
+    padding:16px 32px;
+    border-radius:10px;
+    font-weight:600;
+    letter-spacing:.3px;
+    transition:.3s;
+}
+
+.botao:hover{
+    transform:translateY(-3px);
+}
+
+.botao-menu{
+    display:flex;
+    align-items:center;
+    gap:var(--sp-xs);
+    background:var(--cor-principal);
+    color:#fff;
+    padding:12px 22px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.botao-menu:hover{
+    background:var(--cor-principal-escura);
+    transform:translateY(-2px);
+}
+
+.botao-whatsapp{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:var(--sp-xs);
+    padding:14px 24px;
+    background:var(--cor-principal);
+    color:#fff;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.botao-whatsapp:hover{
+    transform:translateY(-3px);
+}
+
+
+/* ==============================
+   HERO
+================================= */
+
+#hero{
+    padding:48px 0 var(--espaco-secao);
+}
+
+.hero-container{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:64px;
+    align-items:center;
+}
+
+.hero-texto h1{
+    margin-bottom:var(--sp-md);
+}
+
+.hero-texto p{
+    font-size:var(--fs-destaque);
+    color:var(--cor-texto-claro);
+    line-height:1.7;
+    margin-bottom:var(--sp-md);
+}
+
+.hero-imagem{
+    display:flex;
+    justify-content:center;
+}
+
+.hero-imagem img{
+    width:100%;
+    max-width:560px;
+    height:620px;
+    object-fit:cover;
+    object-position:center;
+    border-radius:24px;
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
+}
+
+
+/* ==============================
+   TODAS AS SEÇÕES
+================================= */
+
+section{
+    padding:var(--espaco-secao) 0;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:var(--sp-sm);
+}
+
+.titulo-secao{
+    text-align:center;
+    max-width:800px;
+    margin:0 auto var(--espaco-bloco);
+}
+
+
+/* ==============================
+   ÁREAS DE ATUAÇÃO / FILOSOFIA (cards)
+================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:var(--sp-lg);
+}
+
+.card{
+    background:white;
+    padding:var(--sp-xl);
+    border-radius:22px;
+    border:1px solid var(--cor-borda);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,.06);
+}
+
+.card h3{
+    margin-bottom:var(--sp-sm);
+}
+
+.card p{
+    font-size:var(--fs-base);
+}
+
+
+/* ==============================
+   SOBRE
+================================= */
+
+.sobre-container{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:64px;
+    align-items:center;
+}
+
+.sobre-imagem img{
+    width:100%;
+    border-radius:24px;
+}
+
+.moldura-foto{
+    width: 420px;
+    height: 420px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    box-shadow: 0 18px 40px rgba(0,0,0,.08);
+
+    margin: 0 auto;
+}
+
+.moldura-foto img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    object-position:60% 20%;
+
+    display:block;
+}
+
+
+.sobre-texto h2{
+    text-align:left;
+    margin-bottom:var(--sp-md);
+}
+
+.sobre-texto p{
+    margin-bottom:var(--sp-sm);
+}
+
+
+/* ==============================
+   COMO FUNCIONA
+================================= */
+
+.passos{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:var(--sp-lg);
+    margin-top:var(--sp-md);
+}
+
+.passo{
+    text-align:center;
+    position:relative;
+}
+
+.numero{
+    width:64px;
+    height:64px;
+    margin:0 auto var(--sp-md);
+    border-radius:50%;
+    background:var(--cor-principal);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:var(--fonte-titulo);
+    font-size:var(--fs-numero);
+    font-weight:700;
+}
+
+.passo h3{
+    margin-bottom:var(--sp-sm);
+}
+
+.observacao-final{
+    max-width:900px;
+    margin:var(--espaco-bloco) auto 0;
+    text-align:center;
+}
+
+.observacao-final p{
+    margin-bottom:var(--sp-sm);
+}
+
+
+/* ==============================
+   TRAJETÓRIA
+================================= */
+
+.timeline{
+    max-width:1000px;
+    margin:var(--espaco-bloco) auto 0;
+}
+
+.timeline-item{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:48px;
+    padding:var(--sp-xl) 0;
+    border-bottom:1px solid var(--cor-borda);
+    align-items:flex-start;
+}
+
+.timeline-item:last-child{
+    border-bottom:none;
+}
+
+.timeline-capitulo{
+    font-family:var(--fonte-titulo);
+    font-size:var(--fs-h3-lg);
+    font-weight:600;
+    color:var(--cor-principal);
+    text-align:right;
+    line-height:1.3;
+}
+
+.timeline-conteudo p{
+    margin-bottom:var(--sp-sm);
+}
+
+.timeline-conteudo p:last-child{
+    margin-bottom:0;
+}
+
+
+/* ==============================
+   CONHEÇA OS TRANSTORNOS
+================================= */
+
+#topicos-interessantes .cards{
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+
+#topicos-interessantes .card{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:220px;
+    cursor:pointer;
+}
+
+#topicos-interessantes .card:hover{
+    transform:translateY(-8px);
+    border-color:var(--cor-principal);
+    box-shadow:0 18px 35px rgba(0,0,0,.08);
+}
+
+#topicos-interessantes .card::after{
+    content:"Saiba mais →";
+    display:block;
+    margin-top:var(--sp-md);
+    color:var(--cor-principal);
+    font-weight:600;
+}
+
+
+/* ==============================
+   PÁGINAS INTERNAS (artigos sobre transtornos)
+================================= */
+
+.texto-artigo{
+    text-align:justify;
+    max-width:900px;
+    margin:0 auto var(--sp-md);
+    line-height:1.9;
+}
+
+.dimensao{
+    max-width:900px;
+    margin:var(--sp-lg) auto;
+}
+
+.dimensao h3{
+    font-size:var(--fs-h3-lg);
+    color:var(--cor-principal);
+    margin-bottom:var(--sp-sm);
+}
+
+.dimensao ul{
+    margin-left:var(--sp-lg);
+}
+
+.dimensao li{
+    margin-bottom:var(--sp-xs);
+    line-height:1.8;
+}
+
+.observacao{
+    max-width:900px;
+    margin:var(--sp-xl) auto;
+    padding:var(--sp-md);
+    background:var(--cor-fundo-card);
+    border-left:5px solid var(--cor-principal);
+    border-radius:10px;
+}
+
+.observacao p{
+    margin:0;
+    text-align:justify;
+}
+
+/* Cards de destaque (ansiedade / alimentares / impulso) */
+.ansiedade-card,
+.alimentares-card,
+.impulso-card{
+    background:#ffffff;
+    border-left:5px solid var(--cor-principal);
+    padding:var(--sp-lg);
+    margin:var(--sp-lg) 0;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+.ansiedade-card h3,
+.alimentares-card h3,
+.impulso-card h3{
+    margin-bottom:var(--sp-xs);
+}
+
+
+/* ==============================
+   TRATAMENTO
+================================= */
+
+.bloco-tratamento{
+    margin-top:var(--sp-xl);
+}
+
+.bloco-tratamento:first-of-type{
+    margin-top:var(--sp-lg);
+}
+
+.bloco-tratamento h3{
+    font-size:var(--fs-h3-lg);
+    color:var(--cor-principal);
+    margin-bottom:var(--sp-md);
+}
+
+.bloco-tratamento p{
+    margin-bottom:var(--sp-sm);
+    text-align:justify;
+}
+
+
+/* ==============================
+   RODAPÉ
+================================= */
+
+footer{
+    padding:var(--sp-xl) 0;
+    border-top:1px solid var(--cor-borda);
+    text-align:center;
+    color:var(--cor-texto-claro);
+    font-size:var(--fs-pequeno);
+}
+
+
+/* ==============================
+   RESPONSIVO
+================================= */
+
+@media (max-width:900px){
+
+    :root{
+        --fs-h1:2.5rem;
+        --fs-h2:1.875rem;
+        --espaco-secao:48px;
+    }
+
+    .hero-container,
+    .sobre-container{
+        grid-template-columns:1fr;
+        gap:var(--sp-xl);
+    }
+
+    .cards,
+    .passos{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .timeline-item{
+        grid-template-columns:1fr;
+        gap:var(--sp-sm);
+    }
+
+    .timeline-capitulo{
+        text-align:left;
+    }
+
+    nav ul{
+        display:none;
+    }
+}
+
+@media (max-width:560px){
+
+    .cards,
+    .passos{
+        grid-template-columns:1fr;
+    }
+}
