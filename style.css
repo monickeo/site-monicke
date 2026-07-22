@@ -286,6 +286,7 @@ section h2{
 }
 
 
+
 /* ==============================
    ÁREAS DE ATUAÇÃO / FILOSOFIA (cards)
 ================================= */
@@ -631,4 +632,52 @@ footer{
     .passos{
         grid-template-columns:1fr;
     }
+}
+
+/* ==============================
+   Corrigindo alinhamento de parágrafos em algumas seções
+================================= */
+
+section p{
+    text-align: justify;
+}
+
+section p{
+
+    font-size:18px;
+    color:#555;
+    line-height:1.8;
+    text-align: justify;
+
+}
+
+.titulo-secao p{
+    text-align: center;
+}
+
+footer p{
+    text-align: center;
+}
+
+.hero-texto p{
+    text-align: left;
+}
+
+
+@media (max-width: 768px){
+
+    section p{
+        text-align: justify;
+    }
+
+}
+
+@media (max-width:768px){
+
+    section p{
+        text-align: justify;
+        hyphens: auto;
+        overflow-wrap: break-word;
+    }
+
 }
