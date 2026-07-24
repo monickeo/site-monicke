@@ -703,3 +703,7 @@ footer p{
 
 }
 
+.cards .card p,
+.passos .passo p{
+    text-align: left;
+}
